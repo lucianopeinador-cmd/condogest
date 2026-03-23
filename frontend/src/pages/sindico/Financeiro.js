@@ -130,7 +130,7 @@ function getRiscoBadge(risco) {
 }
 
 export default function Financeiro() {
-  const [aba, setAba] = useState('inadimplencia');
+  
   const nomeUsuario = localStorage.getItem('nomeUsuario') || 'Sindico';
 
   return (
