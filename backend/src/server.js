@@ -1,4 +1,4 @@
- const express = require('express');
+const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -7,7 +7,11 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: ['https://condogest-snowy.vercel.app', 'http://localhost:3000'],
+  credentials: true,
+}));
+
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth'));
@@ -32,3 +36,19 @@ mongoose
   .catch((err) => {
     console.error('Erro ao conectar MongoDB:', err.message);
   });
+```
+
+Salve com **Ctrl + S**.
+
+Agora no **terceiro terminal** (cmd):
+```
+cd C:\Users\MICRO\Desktop\newgen
+```
+```
+git add .
+```
+```
+git commit -m "fix cors"
+```
+```
+git push
