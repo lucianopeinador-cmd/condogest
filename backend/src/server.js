@@ -17,6 +17,6 @@ app.use("/api/financeiro",require("./routes/financeiro"));
 
 app.get("/",(req,res)=>{res.json({mensagem:"CondoGest API funcionando."})});
 
-const PORT=process.env.PORT||8080;
+const PORT=process.env.PORT||3000;
 
-mongoose.connect(process.env.MONGO_URI).then(()=>{console.log("MongoDB conectado.");app.listen(PORT,()=>{console.log("Servidor rodando na porta "+PORT)});}).catch((err)=>{console.error("Erro:",err.message)});
+mongoose.connect(process.env.MONGO_URI).then(()=>{console.log("MongoDB conectado.");app.listen(PORT,"0.0.0.0",()=>{console.log("Servidor rodando na porta "+PORT)});}).catch((err)=>{console.error("Erro:",err.message)});
